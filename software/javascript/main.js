@@ -2,8 +2,8 @@
 let linhas = ' ';
 
 const  form = document.getElementById('form-atividade');
-const imgAprovado = '<img src="../images/aprovado.png" alt="Emoji Celebridade">'
-const imgReprovado = '<img src="../images/reprovado.png" alt="Emoji Decepcionado">';
+const imgAprovado = '<img src="./images/aprovado.png" alt="Emoji Celebridade">'
+const imgReprovado = '<img src="./images/reprovado.png" alt="Emoji Decepcionado">';
 const inputNomeAtividade = document.getElementById('nome-atividade');
 const inputNotaAtividade = document.getElementById('nota-atividade');
 const nomeAtividadeArray = [];
