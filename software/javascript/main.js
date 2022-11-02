@@ -8,6 +8,7 @@ const inputNomeAtividade = document.getElementById('nome-atividade');
 const inputNotaAtividade = document.getElementById('nota-atividade');
 const nomeAtividadeArray = [];
 const notaAtividadeArray = [];
+
 let notaMinima = parseFloat(Number(prompt('Digite uma nota minima:')));
 
 
