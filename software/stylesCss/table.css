@@ -39,5 +39,21 @@ table td img{
 
 }
 
+.aprovado{
 
+    padding: 8px;
+    font-weight: bold;
+    color: #fff;
+    background-color: green;
+    border-radius: 3px;
+}
+
+.reprovado{
+    
+    padding: 8px;
+    font-weight: bold;
+    color: #fff;
+    background-color: red;
+    border-radius: 3px;
+}
 

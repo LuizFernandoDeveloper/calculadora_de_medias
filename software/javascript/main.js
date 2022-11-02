@@ -8,30 +8,43 @@ const inputNomeAtividade = document.getElementById('nome-atividade');
 const inputNotaAtividade = document.getElementById('nota-atividade');
 const nomeAtividadeArray = [];
 const notaAtividadeArray = [];
+let notaMinima = parseFloat(Number(prompt('Digite uma nota minima:')));
+
+
+if(notaMinima == 0){
+
+    notaMinima = 7;
+
+}
 
 form.addEventListener('submit', function(e){
 
     e.preventDefault();
-
-    adicionaLinha();
-    controleDaMedia();
-    atualizaTabela();
     
+    if(nomeAtividadeArray.includes(inputNomeAtividade.value.trim())){
+
+        alert(`A atividade: ${inputNomeAtividade.value} já  foi inserida!`);
+
+    }
+    else{
+
+        adicionaLinha();
+        atualizaTabela();
+        controleDaMedia();
+
+    }
 
 });
 
 function adicionaLinha() { 
 
-    
-    
-    let linha = '<tr>';
-    linha += `<td>${inputNomeAtividade.value}</td>`;
-    linha += `<td>${inputNotaAtividade.value}</td>`;
-    linha += `<td>${inputNotaAtividade.value >= 7 ? imgAprovado : imgReprovado}</td>`;
-    linha += `</tr>`;
 
-    linhas += linha;
-    
+        let linha = '<tr>';
+        linha += `<td>${inputNomeAtividade.value}</td>`;
+        linha += `<td>${inputNotaAtividade.value}</td>`;
+        linha += `<td>${inputNotaAtividade.value >= notaMinima ? imgAprovado : imgReprovado}</td>`;
+        linha += `</tr>`;
+        linhas += linha;
 
 
 }
@@ -47,10 +60,13 @@ function controleDaMedia(){
     
     let somaMedia = 0;
     let resultado  = 0;
-    const atualizaResultado = document.querySelector('.resultado');
+    const atualizaResultado = document.querySelector('.resultado-final');
     const atualizaMediaFinal = document.querySelector('.media-final');
-    nomeAtividadeArray.push(inputNomeAtividade.value);
-    notaAtividadeArray.push(parseFloat(inputNotaAtividade.value));
+    const spanAprovado = '<span class="aprovado">Aprovado</span>';
+    const spanReprovado = '<span class="reprovado">Reprovado</span>';
+
+    nomeAtividadeArray.push(inputNomeAtividade.value.trim());
+    notaAtividadeArray.push(parseFloat(inputNotaAtividade.value.trim()));
     
     notaAtividadeArray.forEach(notas =>{
     
@@ -59,21 +75,19 @@ function controleDaMedia(){
     });
 
     resultado  = somaMedia / notaAtividadeArray.length;
-    
-    atualizaMediaFinal.innerHTML = resultado;
+    atualizaMediaFinal.innerHTML = resultado.toFixed(2);
 
     if(notaAtividadeArray.length == 1){
 
         atualizaMediaFinal.innerHTML = 'Notas insuficiente';
-        atualizaResultado.innerHTML =  'Resultado';
         
     }
     else{
 
-        atualizaResultado.innerHTML =  resultado  < 7 ? 'Reprovado': 'Aprovado';
+        atualizaResultado.innerHTML =  resultado < notaMinima  ? spanReprovado : spanAprovado;
 
     }
-    
     inputNomeAtividade.value = ' ';
     inputNotaAtividade.value = ' ';
+    
 }
