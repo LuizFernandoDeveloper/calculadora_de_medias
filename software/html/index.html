@@ -30,50 +30,44 @@
 
 </head>
 <body>
-
     <div class="container">
         <header>
             <img src="../images/logo.png" alt="Capelo e diploma">
             <h1>Calculadora de medias</h1>
         </header>
+        <form id="form-atividade">
+            <input  id="nome-atividade" type="text" required placeholder="Nome da atividade"/>
+            <input id="nota-atividade" type="number" required placeholder="Nota" min="0" max="10"/>
+            <button type="submit">Adicionar +</button>
+        </form>
+        <table cellspacing="0">
+            <thead>
+                <tr>
+                    <th>
+                        Nome da atividade
+                    </th>
+                    <th>
+                        Nota da atividade
+                    </th>
+                    <th>
+                        Aprovado?
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>Média final</td>
+                    <td class="media-final">--</td>
+                    <td><span class="resultado">Resultado</span></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
 
-    <form >
-        <input type="text" required placeholder="Nome da atividade"/>
-        <input type="number" required placeholder="Nota" min="0" max="10"/>
-        <button type="submit">Adicionar +</button>
-    </form>
-    <table cellspacing="0">
-        <thead>
-            <tr>
-                <th>
-                    Nome da atividade
-                </th>
-                <th>
-                    Nota da atividade
-                </th>
-                <th>
-                    Aprovado?
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Atividade 1</td>
-                <td>7</td>
-                <td><img src="../images/aprovado.png" alt="Emoji festejando"></td>
+<script src="../javascript/main.js"></script>
 
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td>
-                    Média final
-                </td>
-                <td>7</td>
-                <td><span class="resultado">Aprovado</span></td>
-            </tr>
-        </tfoot>
-    </table>
-   </div>
 </body>
 </html>
